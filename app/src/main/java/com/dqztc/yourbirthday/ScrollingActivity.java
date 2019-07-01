@@ -66,8 +66,15 @@ public class ScrollingActivity extends AppCompatActivity {
     private void getYourBirthday(int startYear, int startmonth, int startday) {
         String birthDay = "";
         stringBuilder.clear();
+        int durYear = 100;
+        int endYear = startYear + 100;
+
+        if (endYear > 2100) {
+            durYear = 2100 - startYear;
+            stringBuilder.append("你的一百年太久了，小岁心力憔悴，只能帮你算到" + durYear + "年后的2100年\n\n");
+        }
         stringBuilder.append("起止年份：" + startYear + "——" + (startYear + 100) + "\n\n");
-        for (int i = 0; i <= 100; i++) {
+        for (int i = 0; i <= durYear; i++) {
             int day = startday;
             if (i < 4) {
                 day++;
