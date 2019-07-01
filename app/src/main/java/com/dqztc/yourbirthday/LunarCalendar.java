@@ -1,5 +1,7 @@
 package com.dqztc.yourbirthday;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -283,6 +285,7 @@ public class LunarCalendar {
     public String getLunarString(int year, int month, int day){
 
         int var = getLunarDateINT(year,month,day);
+        Log.d("data", "getLunarString: " + var);
         int lYear = (int)var/10000;
         int lMonth = (int)(var%10000)/100;
         int lDay = var - lYear*10000 - lMonth*100;

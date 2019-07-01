@@ -13,6 +13,8 @@ import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.dqztc.yourbirthday.pictimeview.MyDatePicker;
@@ -26,7 +28,8 @@ public class ScrollingActivity extends AppCompatActivity {
     private LunarCalendar lunarCalendar;
     private boolean showAllDates;
 
-    private String selectStr = "";
+    private String selectStr = "1989-07-04";
+    private boolean isWrongDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,15 @@ public class ScrollingActivity extends AppCompatActivity {
 //                getYourBirthday(startYear, startmonth, startday);
                 onYearMonthDayPicker("选择开始日期", selectStr, "1980-01-01", "");
 
+            }
+        });
+
+        CheckBox checkBox = findViewById(R.id.wrongnumber);
+        checkBox.setChecked(isWrongDay);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isWrongDay = isChecked;
             }
         });
 
@@ -76,11 +88,14 @@ public class ScrollingActivity extends AppCompatActivity {
         stringBuilder.append("起止年份：" + startYear + "——" + (startYear + 100) + "\n\n");
         for (int i = 0; i <= durYear; i++) {
             int day = startday;
-            if (i < 4) {
+            //这个地方不准！ 1989年7月4日是农历六月初二 这个算法算出来是六月初一，故加1
+            if (i == 0 && isWrongDay) {
                 day++;
             }
 
             String date = lunarCalendar.getLunarString(startYear + i, startmonth, day);
+//            Calendar  dayCalendar = BaseUtil.TransCalendar2(String.format("%d-%2d-%2d", startYear + i, startmonth, startday));
+//            String date = new CalendarUtil(dayCalendar).toString();
             if (i == 0) {
                 birthDay = date;
             }

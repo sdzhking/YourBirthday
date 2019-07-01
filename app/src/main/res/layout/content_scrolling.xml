@@ -21,7 +21,16 @@
             android:text="@string/content_tips"
             android:textSize="16sp"
             android:lineSpacingMultiplier="1.2"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <CheckBox
+            android:id="@+id/wrongnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始第一年的农历少一天需要校正(重新计算)"
+            android:textColor="#393939"
+            android:layout_marginBottom="10dp"
             />
 
         <TextView
