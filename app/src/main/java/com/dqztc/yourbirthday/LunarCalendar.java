@@ -289,6 +289,7 @@ public class LunarCalendar {
         int lYear = (int)var/10000;
         int lMonth = (int)(var%10000)/100;
         int lDay = var - lYear*10000 - lMonth*100;
+        Log.d("data", "getLunarString: lDay " + lDay);
         String lunY = cyclical(year,month,day)+"年";
         String lunM="";
         int testMonth = getSunDate(lYear,lMonth,lDay,false).get(Calendar.MONTH)+1;
