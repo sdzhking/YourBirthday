@@ -92,5 +92,5 @@
     <string name="action_settings">重新计算</string>
     <string name="action_showall">全部日期</string>
     <string name="action_showonly">仅重合日期</string>
-    <string name="content_tips">百年生日：\n记录从你选择的时间点开始\n接下来一百年内阴历与阳历为同一天的日期，偶认为这些日期比较特殊值得被纪念！\n Celebration！\n Cheers!</string>
+    <string name="content_tips">百年生日：\n计算从你选择的时间点开始\n接下来一百年内阴历与阳历为同一天的日期，偶认为这些日期比较特殊值得被纪念！\n Celebration！\n Cheers!</string>
 </resources>
