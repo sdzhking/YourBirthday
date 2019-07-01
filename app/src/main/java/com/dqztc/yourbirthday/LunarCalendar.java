@@ -225,7 +225,7 @@ public class LunarCalendar {
         if(day!=20 && day != 30){
             var = chineseTen[(int)((day-1)/10)]+ chineseDay[(int)((day-1)%10)];
         }else if(day !=20){
-            var = chineseTen[(int)(day/10)]+"十";
+            var = chineseTen[(int)(day/10)];
         }else{
             var = "二十";
         }
